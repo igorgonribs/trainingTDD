@@ -3,7 +3,7 @@
 This is a study about unitary tests in Java using JUnit.
 Two design patterns (builder and factory) were also used in this project.
 
-It is a simple project about negotiations and its representations in a CandleStick graphic.
+It is a simple project about negotiations and its representations in a CandleStick style graphic.
 
 This project has a package with 3 classes:
 - **Negotiation**: Represents negotiations in the market.
