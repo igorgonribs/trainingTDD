@@ -24,5 +24,8 @@ public final class Negociacao {
 		this.data = data;
 	}
 	
+	public double getVolume() {
+		return this.preco*this.quantidade;
+	}
 	
 }
