@@ -23,7 +23,7 @@ public class TestCandleStickFactory {
 		List<Negotiation> list = Arrays.asList(n1, n2, n3, n4);
 
 		CandleStickFactory factory = new CandleStickFactory();
-		CandleStick candle = factory.geraCandleStickParaData(list, today);
+		CandleStick candle = factory.generateCandleStickParaData(list, today);
 		
 		assertEquals(30, candle.getMax(), 0.0001);       
 		assertEquals(10, candle.getMin(), 0.0001);       
@@ -41,7 +41,7 @@ public class TestCandleStickFactory {
 		List<Negotiation> lista = Arrays.asList(n1);
 
 		CandleStickFactory fabrica = new CandleStickFactory();
-		CandleStick candle = fabrica.geraCandleStickParaData(lista, today);
+		CandleStick candle = fabrica.generateCandleStickParaData(lista, today);
 		
 		assertEquals(10, candle.getMax(), 0.0001);
 		assertEquals(10, candle.getMin(), 0.0001);
@@ -58,7 +58,7 @@ public class TestCandleStickFactory {
 		List<Negotiation> negotiationList = new ArrayList<Negotiation>();
 
 		CandleStickFactory factory = new CandleStickFactory();
-		CandleStick candle = factory.geraCandleStickParaData(negotiationList, today);
+		CandleStick candle = factory.generateCandleStickParaData(negotiationList, today);
 		
 		assertEquals(0, candle.getMax(), 0.0001);       
 		assertEquals(0, candle.getMin(), 0.0001);       

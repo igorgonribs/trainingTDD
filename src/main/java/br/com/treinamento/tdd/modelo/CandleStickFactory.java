@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class CandleStickFactory {
 
-	public CandleStick geraCandleStickParaData(List<Negotiation> negotiations, LocalDateTime date) {
+	public CandleStick generateCandleStickParaData(List<Negotiation> negotiations, LocalDateTime date) {
 		double oppening = negotiations.isEmpty() ? 0 : negotiations.get(0).getPrice();
 		double closure = negotiations.isEmpty() ? 0 : negotiations.get(negotiations.size() - 1).getPrice();
 		
