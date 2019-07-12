@@ -4,38 +4,44 @@ import java.time.LocalDateTime;
 
 public class CandleBuilder {
 
-	private double abertura;
-	private double fechamento;
-	private double maximo;
-	private double minimo;
-	private double volume;
-	private LocalDateTime data;
-	
-	public CandleBuilder comAbertura(double abertura) {
-		this.abertura = abertura;
+	private double oppening;
+	private double closure;
+	private double max;
+	private double min;
+	private double vol;
+	private LocalDateTime date;
+
+	public CandleBuilder withOppening(double oppening) {
+		this.oppening = oppening;
 		return this;
 	}
-	public CandleBuilder comFechamento(double fechamento) {
-		this.fechamento = fechamento;
+
+	public CandleBuilder withClosure(double closure) {
+		this.closure = closure;
 		return this;
 	}
-	public CandleBuilder comMaximo(double maximo) {
-		this.maximo = maximo;
+
+	public CandleBuilder withMax(double max) {
+		this.max = max;
 		return this;
 	}
-	public CandleBuilder comMinimmo(double minimo) {
-		this.minimo = minimo;
+
+	public CandleBuilder withMin(double min) {
+		this.min = min;
 		return this;
 	}
-	public CandleBuilder comVolume(double volume) {
-		this.volume = volume;
+
+	public CandleBuilder withVol(double vol) {
+		this.vol = vol;
 		return this;
 	}
-	public CandleBuilder comData(LocalDateTime data) {
-		this.data = data;
+
+	public CandleBuilder withDate(LocalDateTime date) {
+		this.date = date;
 		return this;
 	}
-	public CandleStick geraCandleStick() {
-		return new CandleStick(abertura, fechamento, maximo, minimo, volume, data);
+
+	public CandleStick generateCandleStick() {
+		return new CandleStick(oppening, closure, max, min, vol, date);
 	}
 }

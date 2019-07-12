@@ -4,46 +4,50 @@ import java.time.LocalDateTime;
 
 public final class CandleStick {
 
-	private final double abertura;
-	private final double fechamento;
-	private final double maximo;
-	private final double minimo;
-	private final double volume;
-	private final LocalDateTime data;
+	private final double oppening;
+	private final double closure;
+	private final double max;
+	private final double min;
+	private final double vol;
+	private final LocalDateTime date;
 	
-	public CandleStick(double abertura, double fechamento, double maximo, double minimo, double volume,
-			LocalDateTime data) {
-		this.abertura = abertura;
-		this.fechamento = fechamento;
-		this.maximo = maximo;
-		this.minimo = minimo;
-		this.volume = volume;
-		this.data = data;
+	public CandleStick(double oppening, double closure, double max, double min, double vol,
+			LocalDateTime date) {
+		
+		if(max < min) {
+			throw new IllegalArgumentException("Max must be greater the min");
+		}
+		this.oppening = oppening;
+		this.closure = closure;
+		this.max = max;
+		this.min = min;
+		this.vol = vol;
+		this.date = date;
 	}
-	public double getAbertura() {
-		return abertura;
+	public double getOppening() {
+		return oppening;
 	}
-	public double getFechamento() {
-		return fechamento;
+	public double getClosure() {
+		return closure;
 	}
-	public double getMaximo() {
-		return maximo;
+	public double getMax() {
+		return max;
 	}
-	public double getMinimo() {
-		return minimo;
+	public double getMin() {
+		return min;
 	}
-	public double getVolume() {
-		return volume;
+	public double getVol() {
+		return vol;
 	}
-	public LocalDateTime getData() {
-		return data;
+	public LocalDateTime getDate() {
+		return date;
 	}
 	
-	public boolean isAlta() {
-		return this.abertura < this.fechamento;
+	public boolean isHigh() {
+		return this.oppening < this.closure;
 	}
 	
-	public boolean isBaixa() {
-		return this.abertura > this.fechamento;
+	public boolean isLow() {
+		return this.oppening > this.closure;
 	}
 }

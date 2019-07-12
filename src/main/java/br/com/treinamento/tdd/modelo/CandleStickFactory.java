@@ -5,24 +5,24 @@ import java.time.LocalDateTime;
 
 public class CandleStickFactory {
 
-	public CandleStick geraCandleStickParaData(List<Negociacao> negociacoes, LocalDateTime data) {
-		double abertura = negociacoes.isEmpty() ? 0 : negociacoes.get(0).getPreco();
-		double fechamento = negociacoes.isEmpty() ? 0 : negociacoes.get(negociacoes.size() - 1).getPreco();
+	public CandleStick geraCandleStickParaData(List<Negotiation> negotiations, LocalDateTime date) {
+		double oppening = negotiations.isEmpty() ? 0 : negotiations.get(0).getPrice();
+		double closure = negotiations.isEmpty() ? 0 : negotiations.get(negotiations.size() - 1).getPrice();
 		
-		double volume = 0;
-		double minimo = negociacoes.isEmpty() ? 0 : negociacoes.get(0).getPreco();
-		double maximo = negociacoes.isEmpty() ? 0 : negociacoes.get(0).getPreco();
+		double vol = 0;
+		double min = negotiations.isEmpty() ? 0 : negotiations.get(0).getPrice();
+		double max = negotiations.isEmpty() ? 0 : negotiations.get(0).getPrice();
 		
-		for(Negociacao negociacao : negociacoes) {
-			volume += negociacao.getVolume();
-			if(negociacao.getPreco() > maximo) {
-				maximo = negociacao.getPreco(); 
+		for(Negotiation negotiation : negotiations) {
+			vol += negotiation.getVol();
+			if(negotiation.getPrice() > max) {
+				max = negotiation.getPrice(); 
 			}
-			if(negociacao.getPreco() < minimo) {
-				minimo = negociacao.getPreco(); 
+			if(negotiation.getPrice() < min) {
+				min = negotiation.getPrice(); 
 			}
 		}
 		
-		return new CandleStick(abertura, fechamento, maximo, minimo, volume, data);
+		return new CandleStick(oppening, closure, max, min, vol, date);
 	}
 }
